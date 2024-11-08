@@ -2,31 +2,15 @@
 
 <!-- Provide a quick summary of what the model is/does. -->
 
-{{ model_summary | default("", true) }}
+Model for Image Classification (binary) ResNet50
 
 ## Model Details
 
 ### Model Description
 
-<!-- Provide a longer summary of what this model is. -->
-
-{{ model_description | default("", true) }}
-
-- **Developed by:** {{ developers | default("[More Information Needed]", true)}}
-- **Funded by [optional]:** {{ funded_by | default("[More Information Needed]", true)}}
-- **Shared by [optional]:** {{ shared_by | default("[More Information Needed]", true)}}
-- **Model type:** {{ model_type | default("[More Information Needed]", true)}}
-- **Language(s) (NLP):** {{ language | default("[More Information Needed]", true)}}
-- **License:** {{ license | default("[More Information Needed]", true)}}
-- **Finetuned from model [optional]:** {{ base_model | default("[More Information Needed]", true)}}
-
-### Model Sources [optional]
-
-<!-- Provide the basic links for the model. -->
-
-- **Repository:** {{ repo | default("[More Information Needed]", true)}}
-- **Paper [optional]:** {{ paper | default("[More Information Needed]", true)}}
-- **Demo [optional]:** {{ demo | default("[More Information Needed]", true)}}
+- **Developed by:** V.Burlay (wladimir.burlay@gmail.com)
+- **Model type:** Convolutional Neural Net
+- **Finetuned from model [optional]:** Pretrained for image classification than fine-tuned with cross-entropy loss for binary classification
 
 ## Uses
 
@@ -34,9 +18,8 @@
 
 ### Direct Use
 
-<!-- This section is for the model use without fine-tuning or plugging into a larger ecosystem/app. -->
-
-{{ direct_use | default("[More Information Needed]", true)}}
+- Intended to be used for fun application, such as filter for defect details
+- Particulary intended for younger audience
 
 ### Downstream Use [optional]
 
