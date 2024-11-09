@@ -23,8 +23,7 @@ Oct. 2024
 
 ## How to Get Started with the Model
 
-model = load_model(G.model_path,custom_objects={
-        'dice_coef':dice_coef})
+model = load_model(model)
 
 ## Training Details
 

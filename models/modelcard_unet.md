@@ -10,20 +10,23 @@ Oct. 2024
 ### Model Description
 
 - **Developed by:** V.Burlay (wladimir.burlay@gmail.com)
-- **Model version:** 26 billion parameter model
-- **Model type:** Convolutional Neural Net
-- **Finetuned from model [optional]:** Pretrained for image classification than fine-tuned with cross-entropy loss for binary classification
+- **Model version:** 98 billion parameter model
+- **Model type:** Unet with ResNet50 (Downsampling)
+- **Finetuned from model [optional]:** Pretrained ResNet50 for image 
+  classification 
+  than fine-tuned with cross-entropy loss for binary classification
 
 ## Uses
 
 ### Direct Use
 
-- Intended to be used for fun application, such as filter for defect details
+- Intended to be used for fun application, such as segmentation for defect 
+  details
 - Particulary intended for younger audience
 
 ## How to Get Started with the Model
 
-model = load_model(G.model_path,custom_objects={
+model = load_model(model,custom_objects={
         'dice_coef':dice_coef})
 
 ## Training Details
@@ -39,13 +42,13 @@ of class (ClassId = [1, 2, 3, 4]).
 
 #### Preprocessing [optional]
 
-It was used Preprocessing of Keras - The Size 224,224
+It was used Preprocessing of Keras - The Size 128,800
 
 #### Training Hyperparameters
 
-Optimizer - RMSprop(learning_rate=1e-3)
+Optimizer - Adam
 loss - 'binary_crossentropy',
-metrics - ['accuracy'])
+metrics - [dice_coef])
 
 ## Evaluation
 
@@ -67,18 +70,9 @@ The model card lists the following factors as potentially
 
 #### Metrics
 
-Main metrics(for one batch):
+The way to evaluate a predictions. The  *dice score*. Recall that:
+$$Dice Score = 2 * \frac{area\_of\_overlap}{combined\_area}$$
 
-    precision    recall  f1-score   support
-
-         0.0       0.97      0.94      0.95        31
-         1.0       0.94      0.97      0.96        33
-
-    accuracy                           0.95        64
-    macro avg       0.95      0.95     0.95        64
-    weighted avg    0.95      0.95     0.95        64
-
-AUC: 0.9525904203323559
 
 ## Technical Specifications [optional]
 
