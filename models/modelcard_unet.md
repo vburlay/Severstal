@@ -42,7 +42,7 @@ of class (ClassId = [1, 2, 3, 4]).
 
 #### Preprocessing [optional]
 
-It was used Preprocessing of Keras - The Size 128,800
+It was used Preprocessing of Keras - The Size: 128,800
 
 #### Training Hyperparameters
 
@@ -70,8 +70,9 @@ The model card lists the following factors as potentially
 
 #### Metrics
 
-The way to evaluate a predictions. The  *dice score*. Recall that:
-$$Dice Score = 2 * \frac{area\_of\_overlap}{combined\_area}$$
+The way to evaluate a predictions. The  *dice score*.
+Recall that:
+ $$Dice Score = 2 * \frac{area\_of\_overlap}{combined\_area}$$
 
 
 ## Technical Specifications [optional]
