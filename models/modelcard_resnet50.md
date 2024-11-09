@@ -1,177 +1,94 @@
 # Model Card for ResNet50
 
-<!-- Provide a quick summary of what the model is/does. -->
-
 Model for Image Classification (binary) ResNet50
+
+## Model date
+Oct. 2024
 
 ## Model Details
 
 ### Model Description
 
 - **Developed by:** V.Burlay (wladimir.burlay@gmail.com)
+- **Model version:** 26 billion parameter model
 - **Model type:** Convolutional Neural Net
 - **Finetuned from model [optional]:** Pretrained for image classification than fine-tuned with cross-entropy loss for binary classification
 
 ## Uses
-
-<!-- Address questions around how the model is intended to be used, including the foreseeable users of the model and those affected by the model. -->
 
 ### Direct Use
 
 - Intended to be used for fun application, such as filter for defect details
 - Particulary intended for younger audience
 
-### Downstream Use [optional]
-
-<!-- This section is for the model use when fine-tuned for a task, or when plugged into a larger ecosystem/app -->
-
-{{ downstream_use | default("[More Information Needed]", true)}}
-
-### Out-of-Scope Use
-
-<!-- This section addresses misuse, malicious use, and uses that the model will not work well for. -->
-
-{{ out_of_scope_use | default("[More Information Needed]", true)}}
-
-## Bias, Risks, and Limitations
-
-<!-- This section is meant to convey both technical and sociotechnical limitations. -->
-
-{{ bias_risks_limitations | default("[More Information Needed]", true)}}
-
-### Recommendations
-
-<!-- This section is meant to convey recommendations with respect to the bias, risk, and technical limitations. -->
-
-{{ bias_recommendations | default("Users (both direct and downstream) should be made aware of the risks, biases and limitations of the model. More information needed for further recommendations.", true)}}
-
 ## How to Get Started with the Model
 
-Use the code below to get started with the model.
-
-{{ get_started_code | default("[More Information Needed]", true)}}
+model = load_model(G.model_path,custom_objects={
+        'dice_coef':dice_coef})
 
 ## Training Details
 
+Fine-tuning of ResNet50. Binary classification
+
 ### Training Data
 
-<!-- This should link to a Dataset Card, perhaps with a short stub of information on what the training data is all about as well as documentation related to data pre-processing or additional filtering. -->
-
-{{ training_data | default("[More Information Needed]", true)}}
-
-### Training Procedure
-
-<!-- This relates heavily to the Technical Specifications. Content here should link to that section when it is relevant to the training procedure. -->
+For test used an evaluation data set of 12568 jpeg-files,
+each with the size (1600,256). The files included both image without
+defect and with defects of classes. Each image can have segment defects 
+of class (ClassId = [1, 2, 3, 4]).
 
 #### Preprocessing [optional]
 
-{{ preprocessing | default("[More Information Needed]", true)}}
-
+It was used Preprocessing of Keras - The Size 224,224
 
 #### Training Hyperparameters
 
-- **Training regime:** {{ training_regime | default("[More Information Needed]", true)}} <!--fp32, fp16 mixed precision, bf16 mixed precision, bf16 non-mixed precision, fp16 non-mixed precision, fp8 mixed precision -->
-
-#### Speeds, Sizes, Times [optional]
-
-<!-- This section provides information about throughput, start/end time, checkpoint size if relevant, etc. -->
-
-{{ speeds_sizes_times | default("[More Information Needed]", true)}}
+Optimizer - RMSprop(learning_rate=1e-3)
+loss - 'binary_crossentropy',
+metrics - ['accuracy'])
 
 ## Evaluation
-
-<!-- This section describes the evaluation protocols and provides the results. -->
 
 ### Testing Data, Factors & Metrics
 
 #### Testing Data
 
-<!-- This should link to a Dataset Card if possible. -->
-
-{{ testing_data | default("[More Information Needed]", true)}}
+For test used an evaluation data set of 5506 jpeg-files,
+each with the size (1600,256). The files included both image without
+defect and with defects of classes. Each image can have segment defects 
+of class (ClassId = [1, 2, 3, 4]).
 
 #### Factors
-
-<!-- These are the things the evaluation is disaggregating by, e.g., subpopulations or domains. -->
-
-{{ testing_factors | default("[More Information Needed]", true)}}
+The model card lists the following factors as potentially
+* Camera angle
+* Presenter distance from camera
+* Camera type
+* Lighting
 
 #### Metrics
 
-<!-- These are the evaluation metrics being used, ideally with a description of why. -->
+Main metrics(for one batch):
 
-{{ testing_metrics | default("[More Information Needed]", true)}}
+    precision    recall  f1-score   support
 
-### Results
+         0.0       0.97      0.94      0.95        31
+         1.0       0.94      0.97      0.96        33
 
-{{ results | default("[More Information Needed]", true)}}
+    accuracy                           0.95        64
+    macro avg       0.95      0.95     0.95        64
+    weighted avg    0.95      0.95     0.95        64
 
-#### Summary
-
-{{ results_summary | default("", true) }}
-
-## Model Examination [optional]
-
-<!-- Relevant interpretability work for the model goes here -->
-
-{{ model_examination | default("[More Information Needed]", true)}}
-
-## Environmental Impact
-
-<!-- Total emissions (in grams of CO2eq) and additional considerations, such as electricity usage, go here. Edit the suggested text below accordingly -->
-
-Carbon emissions can be estimated using the [Machine Learning Impact calculator](https://mlco2.github.io/impact#compute) presented in [Lacoste et al. (2019)](https://arxiv.org/abs/1910.09700).
-
-- **Hardware Type:** {{ hardware_type | default("[More Information Needed]", true)}}
-- **Hours used:** {{ hours_used | default("[More Information Needed]", true)}}
-- **Cloud Provider:** {{ cloud_provider | default("[More Information Needed]", true)}}
-- **Compute Region:** {{ cloud_region | default("[More Information Needed]", true)}}
-- **Carbon Emitted:** {{ co2_emitted | default("[More Information Needed]", true)}}
+AUC: 0.9525904203323559
 
 ## Technical Specifications [optional]
 
-### Model Architecture and Objective
-
-{{ model_specs | default("[More Information Needed]", true)}}
-
-### Compute Infrastructure
-
-{{ compute_infrastructure | default("[More Information Needed]", true)}}
-
 #### Hardware
 
-{{ hardware_requirements | default("[More Information Needed]", true)}}
+GPU: Quadro P4000 with 7107 MB
 
 #### Software
 
-{{ software | default("[More Information Needed]", true)}}
-
-## Citation [optional]
-
-<!-- If there is a paper or blog post introducing the model, the APA and Bibtex information for that should go in this section. -->
-
-**BibTeX:**
-
-{{ citation_bibtex | default("[More Information Needed]", true)}}
-
-**APA:**
-
-{{ citation_apa | default("[More Information Needed]", true)}}
-
-## Glossary [optional]
-
-<!-- If relevant, include terms and calculations in this section that can help readers understand the model or model card. -->
-
-{{ glossary | default("[More Information Needed]", true)}}
-
-## More Information [optional]
-
-{{ more_information | default("[More Information Needed]", true)}}
-
-## Model Card Authors [optional]
-
-{{ model_card_authors | default("[More Information Needed]", true)}}
+OS: Ubuntu 24.02, CUDA 12.06, Tensorflow 12.01
 
 ## Model Card Contact
-
-{{ model_card_contact | default("[More Information Needed]", true)}}
+e-mail: wladimir.burlay@gmail.com
