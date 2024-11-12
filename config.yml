@@ -1,0 +1,13 @@
+data:
+  train_path: data/ml_classification
+  train_csv: data/train.csv
+  train_images : data/train_images
+train:
+  nb_epochs : 100
+model:
+  name: resnet50.keras
+  params:
+    loss: binary_crossentropy
+    metrics : accuracy
+    optimizer: RMSprop
+  store_path: models/resnet50.keras
