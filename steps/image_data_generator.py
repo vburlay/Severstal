@@ -16,8 +16,7 @@ class G:
     nb_epochs = 100
     batch_size = 64
     path = os.path.join(Path(os.getcwd()).parent, "data")
-    base_dir = os.getcwd()
-    train_dir = os.path.join(base_dir, "data/ml_classification/")
+    train_dir = os.path.join(path , "ml_classification/")
     RGB = 3
     callbacks = [
         keras.callbacks.ReduceLROnPlateau(
