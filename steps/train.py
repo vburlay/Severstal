@@ -104,8 +104,8 @@ if (__name__) == "__main__":
     u_model = unet.model()
     generator = unet.dats()
     # TRAIN MODEL
-    history = u_model.fit(generator, epochs=2, verbose=2)
-    #model_path_unet = os.path.join(base_dir, "models/unet.keras")
-    #u_model.save(model_path_unet, overwrite=True)
+    u_model.fit(generator, epochs=2, verbose=2)
+    model_path_unet = os.path.join(base_dir, "models/unet.keras")
+    u_model.save(model_path_unet, overwrite=True)
     model.evaluate(generator, verbose=2)
 
