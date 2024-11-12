@@ -94,9 +94,7 @@ def unet():
         logging.info("Model training completed successfully")
 
         # Evaluate model
-        predictor = Predictor()
-        # accuracy, roc, precision, recall, f1, report= predictor.evaluate_model(
-        #                                                      generator_train)
+        eval = model.evaluate(generator, verbose=2)
         logging.info("Model evaluation completed successfully")
 
         # Tags
@@ -106,11 +104,8 @@ def unet():
         # Log metrics
         model_params = config['model']['params']
         mlflow.log_params(model_params)
-        mlflow.log_metric("accuracy", accuracy)
-        mlflow.log_metric("roc", roc)
-        mlflow.log_metric('precision', precision)
-        mlflow.log_metric('recall', recall)
-        mlflow.log_metric('f1', f1)
+        mlflow.log_metric("loss", eval[0])
+        mlflow.log_metric("dice_coef", eval[1])
 
         # Register the model
         model_name = "segmentation_model"
@@ -123,8 +118,7 @@ def unet():
         print("\n============= Model Evaluation Results ==============")
         print(f"Model: {config['model']['name']}")
         print(
-            f"Accuracy Score: {accuracy:.4f}, ROC AUC Score: {roc:.4f}")
-        print(f"\n{report}")
+            f"Loss: {eval[0]:.4f}, Dice_coef: {eval[1]:.4f}")
         print("=====================================================\n")
 if __name__ == "__main__":
     # main()
