@@ -1,0 +1,15 @@
+artifact_uri: file:///home/vladimir/PycharmProjects/Severstal/mlruns/960378582474039752/64b89bd0bacf418fbb31fc986609e504/artifacts
+end_time: 1731361809234
+entry_point_name: ''
+experiment_id: '960378582474039752'
+lifecycle_stage: active
+run_id: 64b89bd0bacf418fbb31fc986609e504
+run_name: capable-dog-618
+run_uuid: 64b89bd0bacf418fbb31fc986609e504
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731361799194
+status: 3
+tags: []
+user_id: vladimir

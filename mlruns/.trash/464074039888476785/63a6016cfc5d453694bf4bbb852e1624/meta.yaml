@@ -1,0 +1,16 @@
+artifact_uri: file:///home/vladimir/PycharmProjects/Severstal/mlruns/464074039888476785/63a6016cfc5d453694bf4bbb852e1624/artifacts
+deleted_time: 1731345010053
+end_time: 1731341757827
+entry_point_name: ''
+experiment_id: '464074039888476785'
+lifecycle_stage: deleted
+run_id: 63a6016cfc5d453694bf4bbb852e1624
+run_name: handsome-finch-493
+run_uuid: 63a6016cfc5d453694bf4bbb852e1624
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731341486080
+status: 3
+tags: []
+user_id: vladimir

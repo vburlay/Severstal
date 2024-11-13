@@ -1,0 +1,16 @@
+artifact_uri: file:///home/vladimir/PycharmProjects/Severstal/mlruns/464074039888476785/2ab4af5e2efa42479f979f6f7ed1c99a/artifacts
+deleted_time: 1731345010053
+end_time: 1731328372688
+entry_point_name: ''
+experiment_id: '464074039888476785'
+lifecycle_stage: deleted
+run_id: 2ab4af5e2efa42479f979f6f7ed1c99a
+run_name: luminous-crow-930
+run_uuid: 2ab4af5e2efa42479f979f6f7ed1c99a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731328275808
+status: 4
+tags: []
+user_id: vladimir

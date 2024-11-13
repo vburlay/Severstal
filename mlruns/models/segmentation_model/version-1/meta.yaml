@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1731481291618
+current_stage: None
+description: null
+last_updated_timestamp: 1731481291618
+name: segmentation_model
+run_id: 280bd88bfab84cadbdbb9b9c37a6ed2b
+run_link: null
+source: file:///home/vladimir/PycharmProjects/Severstal/mlruns/960378582474039752/280bd88bfab84cadbdbb9b9c37a6ed2b/artifacts/unet.keras
+status: READY
+status_message: null
+storage_location: file:///home/vladimir/PycharmProjects/Severstal/mlruns/960378582474039752/280bd88bfab84cadbdbb9b9c37a6ed2b/artifacts/unet.keras
+user_id: null
+version: 1
