@@ -1,0 +1,16 @@
+artifact_uri: file:///home/vladimir/PycharmProjects/Severstal/mlruns/464074039888476785/5608fe3b420d4dddafdeab539b5719bb/artifacts
+deleted_time: 1731345010053
+end_time: 1731327859332
+entry_point_name: ''
+experiment_id: '464074039888476785'
+lifecycle_stage: deleted
+run_id: 5608fe3b420d4dddafdeab539b5719bb
+run_name: resilient-turtle-347
+run_uuid: 5608fe3b420d4dddafdeab539b5719bb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731327737760
+status: 4
+tags: []
+user_id: vladimir

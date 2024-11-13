@@ -1,0 +1,15 @@
+artifact_uri: file:///home/vladimir/PycharmProjects/Severstal/mlruns/960378582474039752/72190840880b48b69d5c1b00dea4e7dd/artifacts
+end_time: 1731357791144
+entry_point_name: ''
+experiment_id: '960378582474039752'
+lifecycle_stage: active
+run_id: 72190840880b48b69d5c1b00dea4e7dd
+run_name: spiffy-bat-366
+run_uuid: 72190840880b48b69d5c1b00dea4e7dd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731346444711
+status: 3
+tags: []
+user_id: vladimir

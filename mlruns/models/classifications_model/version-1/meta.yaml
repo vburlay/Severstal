@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1731357791142
+current_stage: None
+description: null
+last_updated_timestamp: 1731357791142
+name: classifications_model
+run_id: 72190840880b48b69d5c1b00dea4e7dd
+run_link: null
+source: file:///home/vladimir/PycharmProjects/Severstal/mlruns/960378582474039752/72190840880b48b69d5c1b00dea4e7dd/artifacts/resnet50.keras
+status: READY
+status_message: null
+storage_location: file:///home/vladimir/PycharmProjects/Severstal/mlruns/960378582474039752/72190840880b48b69d5c1b00dea4e7dd/artifacts/resnet50.keras
+user_id: null
+version: 1

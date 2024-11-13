@@ -83,7 +83,6 @@ def unet():
 
         # Prepare and train model
         model_path = os.path.join(os.getcwd(), config['model']['store_path'])
-        generator_train, _ = train_val_generators()
 
         unet= get_unet()
         model = unet.model()

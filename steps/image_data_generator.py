@@ -15,7 +15,7 @@ class G:
     img_width = 224
     nb_epochs = 100
     batch_size = 64
-    path = os.path.join(Path(os.getcwd()).parent, "data")
+    path = os.path.join(Path(os.getcwd()), "data")
     train_dir = os.path.join(path , "ml_classification/")
     RGB = 3
     callbacks = [

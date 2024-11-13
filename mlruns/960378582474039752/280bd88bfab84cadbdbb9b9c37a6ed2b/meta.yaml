@@ -1,0 +1,15 @@
+artifact_uri: file:///home/vladimir/PycharmProjects/Severstal/mlruns/960378582474039752/280bd88bfab84cadbdbb9b9c37a6ed2b/artifacts
+end_time: 1731481291619
+entry_point_name: ''
+experiment_id: '960378582474039752'
+lifecycle_stage: active
+run_id: 280bd88bfab84cadbdbb9b9c37a6ed2b
+run_name: adorable-crow-679
+run_uuid: 280bd88bfab84cadbdbb9b9c37a6ed2b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731479940781
+status: 3
+tags: []
+user_id: vladimir

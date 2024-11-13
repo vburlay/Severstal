@@ -60,7 +60,7 @@ def dice_coef(y_true, y_pred, smooth=1):
 class get_unet():
     def __init__(self):
         self.BACKBONE = 'resnet50'
-        self.base_dir = Path(os.getcwd()).parent
+        self.base_dir = Path(os.getcwd())
         self.path = os.path.join(self.base_dir, "data")
         self.preprocess_input = get_preprocessing(self.BACKBONE)
 
