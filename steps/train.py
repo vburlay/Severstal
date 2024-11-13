@@ -73,9 +73,11 @@ class get_unet():
         train2 = pd.DataFrame(train2.to_records())
         train2.rename(columns={"1": "e1", "2": "e2", "3": "e3", "4": "e4"},
                       inplace=True)
-        generator=DataGenerator(train2, shuffle=True,
-                         preprocess=self.preprocess_input)
-        return generator
+        train_batches = DataGenerator(train2.iloc[:int(0.8 * len(train2))], shuffle=True,
+                                      preprocess=self.preprocess_input)
+        valid_batches = DataGenerator(train2.iloc[int(0.8 * len(train2)):],
+                                      preprocess=self.preprocess_input)
+        return train_batches,valid_batches
     def model(self):
         model = Unet(
         self.BACKBONE ,
@@ -91,9 +93,12 @@ class get_unet():
 if (__name__) == "__main__":
     base_dir = Path(os.getcwd()).parent
     model_path = os.path.join(base_dir, "models/resnet50.keras")
-    generator_train, _ = train_val_generators()
+    generator_train, generator_validation = train_val_generators()
     model = get_resnet50()
-    history = model.fit(generator_train, epochs=G.nb_epochs, callbacks=G.callbacks)
+    history = model.fit(generator_train,
+                        validation_data=generator_validation,
+                        epochs=G.nb_epochs,
+                        callbacks=G.callbacks)
     keras.backend.clear_session()
     model.save(model_path)
 
@@ -102,9 +107,9 @@ if (__name__) == "__main__":
     # U-Net
     unet = get_unet()
     u_model = unet.model()
-    generator = unet.dats()
+    train_batches,valid_batches = unet.dats()
     # TRAIN MODEL
-    u_model.fit(generator, epochs=2, verbose=2)
+    u_model.fit(train_batches, validation_data = valid_batches, epochs=2, verbose=2)
     model_path_unet = os.path.join(base_dir, "models/unet.keras")
     u_model.save(model_path_unet, overwrite=True)
 

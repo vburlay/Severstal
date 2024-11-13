@@ -26,10 +26,11 @@ def main():
 
         # Prepare and train model
         model_path = os.path.join(os.getcwd(), config['model']['store_path'])
-        generator_train, _ = train_val_generators()
+        generator_train, generator_validation = train_val_generators()
 
         model = get_resnet50()
-        model.fit(generator_train, epochs= config['train']['nb_epochs'],
+        model.fit(generator_train, validation_data=generator_validation,
+                  epochs= config['train']['nb_epochs'],
                                            callbacks=G.callbacks)
         model.save(model_path,overwrite=True)
         logging.info("Model training completed successfully")
@@ -86,14 +87,15 @@ def unet():
 
         unet= get_unet()
         model = unet.model()
-        generator = unet.dats()
-        model.fit(generator, epochs=config['train']['nb_epochs'],
+        train_batches,valid_batches = unet.dats()
+        model.fit(train_batches, validation_data = valid_batches,
+                  epochs=config['train']['nb_epochs'],
                   verbose=config['train']['verbose'])
         model.save(model_path,overwrite=True)
         logging.info("Model training completed successfully")
 
         # Evaluate model
-        eval = model.evaluate(generator, verbose=2)
+        eval = model.evaluate(valid_batches, verbose=2)
         logging.info("Model evaluation completed successfully")
 
         # Tags
