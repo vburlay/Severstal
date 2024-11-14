@@ -2,7 +2,7 @@ import logging
 import yaml
 import mlflow
 from steps.image_data_generator import *
-from steps.train import get_resnet50,get_unet
+from steps.train import get_resnet50,dice_coef
 import os
 import steps.preproc as pr
 from steps.predict import Predictor
@@ -25,14 +25,16 @@ def main():
         logging.info("Data ingestion completed successfully")
 
         # Prepare and train model
-        model_path = os.path.join(os.getcwd(), config['model']['store_path'])
         generator_train, generator_validation = train_val_generators()
 
         model = get_resnet50()
         model.fit(generator_train, validation_data=generator_validation,
                   epochs= config['train']['nb_epochs'],
                                            callbacks=G.callbacks)
-        model.save(model_path,overwrite=True)
+        #model.save(model_path,overwrite=True)
+
+
+        mlflow.keras.log_model(model, "resnet50")
         logging.info("Model training completed successfully")
 
         # Evaluate model
@@ -74,24 +76,13 @@ def unet():
     mlflow.set_experiment("Model Training Experiments")
 
     with mlflow.start_run() as run:
-        # Load data
-        path = os.path.join(os.getcwd(), config['data']['train_path'])
-        pr.extract_data(path)
-        filename = os.path.join(os.getcwd(), config['data']["train_csv"])
-        source_dir = os.path.join(os.getcwd(), config['data']["train_images"])
-        pr.parse_data_from_input(filename, source_dir, path)
-        logging.info("Data ingestion completed successfully")
-
-        # Prepare and train model
+        train_batches,valid_batches = generators_unet()
         model_path = os.path.join(os.getcwd(), config['model']['store_path'])
+        model = keras.models.load_model(model_path,custom_objects={
+                                        'dice_coef':dice_coef})
 
-        unet= get_unet()
-        model = unet.model()
-        train_batches,valid_batches = unet.dats()
-        model.fit(train_batches, validation_data = valid_batches,
-                  epochs=config['train']['nb_epochs'],
-                  verbose=config['train']['verbose'])
-        model.save(model_path,overwrite=True)
+        mlflow.keras.log_model(model, "unet")
+
         logging.info("Model training completed successfully")
 
         # Evaluate model
@@ -122,7 +113,7 @@ def unet():
             f"Loss: {eval[0]:.4f}, Dice_coef: {eval[1]:.4f}")
         print("=====================================================\n")
 if __name__ == "__main__":
-    # main()
+#    main()
     unet()
 
 

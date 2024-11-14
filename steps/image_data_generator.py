@@ -1,5 +1,6 @@
 from keras._tf_keras.keras.preprocessing.image import ImageDataGenerator
 from keras._tf_keras.keras.applications.resnet50 import preprocess_input
+
 import keras._tf_keras.keras
 from dataclasses import dataclass
 import os
@@ -15,7 +16,9 @@ class G:
     img_width = 224
     nb_epochs = 100
     batch_size = 64
-    path = os.path.join(Path(os.getcwd()), "data")
+    BACKBONE = 'resnet50'
+    preprocess_input = preprocess_input
+    path = os.path.join(os.getcwd(), "data")
     train_dir = os.path.join(path , "ml_classification/")
     RGB = 3
     callbacks = [
@@ -127,3 +130,19 @@ class DataGenerator(keras.utils.Sequence):
             return X, y
         else:
             return X
+def generators_unet():
+    path = os.path.join(os.getcwd(), 'data')
+    train = pd.read_csv(path + '/train.csv')
+    train2 = train.pivot(index='ImageId', columns='ClassId',
+                     values='EncodedPixels')
+    train2.fillna('',inplace=True);
+    train2['count'] = np.sum(train2.iloc[:]!='',axis=1).values
+    train2 = pd.DataFrame(train2.to_records())
+    train2.rename(columns={"1":"e1","2":"e2","3":"e3","4":"e4"}, inplace=True)
+
+    idx = int(0.8 * len(train2));
+    train_batches = DataGenerator(train2.iloc[:idx], shuffle=True,
+                                  preprocess=G.preprocess_input)
+    valid_batches = DataGenerator(train2.iloc[idx:],
+                                  preprocess=G.preprocess_input)
+    return train_batches , valid_batches

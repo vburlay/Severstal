@@ -8,7 +8,7 @@ from keras._tf_keras.keras.applications.resnet50 import ResNet50
 from keras._tf_keras.keras import backend as K
 
 from segmentation_models import Unet
-from segmentation_models import get_preprocessing
+#from segmentation_models import get_preprocessing
 
 
 def feature_extractor(inputs):
@@ -46,49 +46,23 @@ def get_resnet50():
         loss="binary_crossentropy",
         metrics=["accuracy"],
     )
-    keras.backend.clear_session()
+
     return model
 def dice_coef(y_true, y_pred, smooth=1):
-    y_true = K.cast(y_true, "float32")
-    y_pred = K.cast(y_pred, "float32")
+    y_true = K.cast(y_true, 'float32')
+    y_pred = K.cast(y_pred, 'float32')
     y_true_f = K.flatten(y_true)
     y_pred_f = K.flatten(y_pred)
     intersection = K.sum(y_true_f * y_pred_f)
-    return (2.0 * intersection + smooth) / (
-                    K.sum(y_true_f) + K.sum(y_pred_f) + smooth)
-
-class get_unet():
-    def __init__(self):
-        self.BACKBONE = 'resnet50'
-        self.base_dir = Path(os.getcwd())
-        self.path = os.path.join(self.base_dir, "data")
-        self.preprocess_input = get_preprocessing(self.BACKBONE)
-
-    def dats(self):
-        self.train = pd.read_csv(self.path + "/train.csv")
-        train2 = self.train.pivot(index="ImageId", columns="ClassId",
-                             values="EncodedPixels")
-        train2.fillna("", inplace=True)
-        train2["count"] = np.sum(train2.iloc[:] != "", axis=1).values
-        train2 = pd.DataFrame(train2.to_records())
-        train2.rename(columns={"1": "e1", "2": "e2", "3": "e3", "4": "e4"},
-                      inplace=True)
-        train_batches = DataGenerator(train2.iloc[:int(0.8 * len(train2))], shuffle=True,
-                                      preprocess=self.preprocess_input)
-        valid_batches = DataGenerator(train2.iloc[int(0.8 * len(train2)):],
-                                      preprocess=self.preprocess_input)
-        return train_batches,valid_batches
-    def model(self):
-        model = Unet(
-        self.BACKBONE ,
-        encoder_weights="imagenet",
-        input_shape=(128, 800, 3),
-        classes=4,
-        activation="sigmoid")
-        model.compile(optimizer="adam", loss="binary_crossentropy",
-                   metrics=[dice_coef])
-
-        return model
+    return (2. * intersection + smooth) / (K.sum(y_true_f) + K.sum(y_pred_f) + smooth)
+def model_unet():
+    # LOAD UNET WITH PRETRAINING FROM IMAGENET
+    model = Unet(G.BACKBONE, encoder_weights='imagenet',
+                 input_shape=(128, 800, 3), classes=4,
+                 activation='sigmoid')
+    model.compile(optimizer='adam', loss='binary_crossentropy',
+                  metrics=[dice_coef])
+    return model
 
 if (__name__) == "__main__":
     base_dir = Path(os.getcwd()).parent
@@ -105,13 +79,14 @@ if (__name__) == "__main__":
     # reconstructed_model = keras.models.load_model(model_path)
 
     # U-Net
-    unet = get_unet()
-    u_model = unet.model()
-    train_batches,valid_batches = unet.dats()
+
+    train_batches,valid_batches = generators_unet()
     # TRAIN MODEL
-    u_model.fit(train_batches, validation_data = valid_batches, epochs=2, verbose=2)
+    u_model = model_unet()
+    u_model.fit(train_batches, validation_data = valid_batches, epochs=5,
+                verbose=2)
     model_path_unet = os.path.join(base_dir, "models/unet.keras")
-    u_model.save(model_path_unet, overwrite=True)
+#    u_model.save(model_path_unet, overwrite=True)
 
 
 
