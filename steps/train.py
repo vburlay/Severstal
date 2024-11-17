@@ -6,9 +6,7 @@ os.environ["SM_FRAMEWORK"] = "tf.keras"
 import keras._tf_keras.keras
 from keras._tf_keras.keras.applications.resnet50 import ResNet50
 from keras._tf_keras.keras import backend as K
-
 from segmentation_models import Unet
-#from segmentation_models import get_preprocessing
 
 
 def feature_extractor(inputs):
@@ -46,47 +44,52 @@ def get_resnet50():
         loss="binary_crossentropy",
         metrics=["accuracy"],
     )
-
     return model
+
+
 def dice_coef(y_true, y_pred, smooth=1):
-    y_true = K.cast(y_true, 'float32')
-    y_pred = K.cast(y_pred, 'float32')
+    # y_true = K.cast(y_true, 'float32')
+    # y_pred = K.cast(y_pred, 'float32')
     y_true_f = K.flatten(y_true)
     y_pred_f = K.flatten(y_pred)
     intersection = K.sum(y_true_f * y_pred_f)
-    return (2. * intersection + smooth) / (K.sum(y_true_f) + K.sum(y_pred_f) + smooth)
+    return (2.0 * intersection + smooth) / (K.sum(y_true_f) + K.sum(y_pred_f) + smooth)
+
+
 def model_unet():
     # LOAD UNET WITH PRETRAINING FROM IMAGENET
-    model = Unet(G.BACKBONE, encoder_weights='imagenet',
-                 input_shape=(128, 800, 3), classes=4,
-                 activation='sigmoid')
-    model.compile(optimizer='adam', loss='binary_crossentropy',
-                  metrics=[dice_coef])
+    model = Unet(
+        G.BACKBONE,
+        encoder_weights="imagenet",
+        input_shape=(128, 800, 3),
+        classes=4,
+        activation="sigmoid",
+    )
+    model.compile(optimizer="adam", loss="binary_crossentropy", metrics=[dice_coef])
     return model
+
 
 if (__name__) == "__main__":
     base_dir = Path(os.getcwd()).parent
     model_path = os.path.join(base_dir, "models/resnet50.keras")
     generator_train, generator_validation = train_val_generators()
     model = get_resnet50()
-    history = model.fit(generator_train,
-                        validation_data=generator_validation,
-                        epochs=G.nb_epochs,
-                        callbacks=G.callbacks)
+    history = model.fit(
+        generator_train,
+        validation_data=generator_validation,
+        epochs=G.nb_epochs,
+        callbacks=G.callbacks,
+    )
     keras.backend.clear_session()
     model.save(model_path)
 
-    # reconstructed_model = keras.models.load_model(model_path)
+    reconstructed_model = keras.models.load_model(model_path)
 
     # U-Net
 
-    train_batches,valid_batches = generators_unet()
+    train_batches, valid_batches = generators_unet()
     # TRAIN MODEL
     u_model = model_unet()
-    u_model.fit(train_batches, validation_data = valid_batches, epochs=5,
-                verbose=2)
+    u_model.fit(train_batches, validation_data=valid_batches, epochs=5, verbose=2)
     model_path_unet = os.path.join(base_dir, "models/unet.keras")
 #    u_model.save(model_path_unet, overwrite=True)
-
-
-

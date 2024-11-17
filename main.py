@@ -76,7 +76,6 @@ def unet():
     mlflow.set_experiment("Model Training Experiments")
 
     with mlflow.start_run() as run:
-        train_batches,valid_batches = generators_unet()
         model_path = os.path.join(os.getcwd(), config['model']['store_path'])
         model = keras.models.load_model(model_path,custom_objects={
                                         'dice_coef':dice_coef})
@@ -85,19 +84,6 @@ def unet():
 
         logging.info("Model training completed successfully")
 
-        # Evaluate model
-        eval = model.evaluate(valid_batches, verbose=2)
-        logging.info("Model evaluation completed successfully")
-
-        # Tags
-        mlflow.set_tag("release.version", "2.0.0")
-        mlflow.set_tag("preprocessing","Size-(128:800)")
-
-        # Log metrics
-        model_params = config['model']['params']
-        mlflow.log_params(model_params)
-        mlflow.log_metric("loss", eval[0])
-        mlflow.log_metric("dice_coef", eval[1])
 
         # Register the model
         model_name = "segmentation_model"
@@ -106,12 +92,7 @@ def unet():
 
         logging.info("MLflow tracking completed successfully")
 
-        # Print evaluation results
-        print("\n============= Model Evaluation Results ==============")
-        print(f"Model: {config['model']['name']}")
-        print(
-            f"Loss: {eval[0]:.4f}, Dice_coef: {eval[1]:.4f}")
-        print("=====================================================\n")
+
 if __name__ == "__main__":
 #    main()
     unet()
