@@ -1,6 +1,5 @@
 from keras._tf_keras.keras.preprocessing.image import ImageDataGenerator
 from keras._tf_keras.keras.applications.resnet50 import preprocess_input
-
 import keras._tf_keras.keras
 from dataclasses import dataclass
 import os
@@ -17,7 +16,6 @@ class G:
     nb_epochs = 100
     batch_size = 64
     BACKBONE = "resnet50"
-    preprocess_input = preprocess_input
     path = os.path.join(os.getcwd(), "data")
     train_dir = os.path.join(path, "ml_classification/")
     RGB = 3
@@ -89,7 +87,8 @@ def rle2maskResize(rle):
 
 class DataGenerator(keras.utils.Sequence):
     def __init__(
-        self, df, batch_size=16, subset="train", shuffle=False, preprocess=None, info={}
+        self, df, batch_size=16, subset="train", shuffle=False,
+            preprocess=None, info={}
     ):
         super().__init__()
         self.df = df
