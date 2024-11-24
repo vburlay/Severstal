@@ -1,6 +1,7 @@
 import unittest
 import pandas as pd
 import os
+from pathlib import Path
 
 from steps.image_data_generator import DataGenerator
 os.environ["SM_FRAMEWORK"] = "tf.keras"
@@ -8,7 +9,7 @@ from segmentation_models import  get_preprocessing
 
 class DataGeneratorTestCase(unittest.TestCase):
     def test_init(self):
-        path = os.path.join(os.getcwd(), 'data')
+        path = os.path.join(Path(os.getcwd()).parent, 'data')
         test = pd.read_csv(path + '/sample_submission.csv')
         defect: list[str] = test.sample(16).index
         test_batches = DataGenerator(test[test.index.isin(defect)],
@@ -17,7 +18,7 @@ class DataGeneratorTestCase(unittest.TestCase):
         self.assertEqual(test_batches.batch_size, 16)
 
     def test_generator(self):
-        path = os.path.join(os.getcwd(), 'data')
+        path = os.path.join(Path(os.getcwd()).parent, 'data')
         test = pd.read_csv(path + '/sample_submission.csv')
         defect: list[str] = test.sample(16).index
         test_batches = DataGenerator(test[test.index.isin(defect)],
