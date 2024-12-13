@@ -6,7 +6,6 @@ from steps.train import get_resnet50,dice_coef
 import os
 import steps.preproc as pr
 from steps.predict import Predictor
-
 # Set up logging
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
