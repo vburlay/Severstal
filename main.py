@@ -27,13 +27,13 @@ def main():
         # Prepare and train model
         generator_train, generator_validation = train_val_generators()
 
-        # model = get_resnet50()
-        # model.fit(generator_train, validation_data=generator_validation,
-        #           epochs= config['train']['nb_epochs'],
-        #                                    callbacks=G.callbacks)
+        model = get_resnet50()
+        model.fit(generator_train, validation_data=generator_validation,
+                  epochs= config['train']['nb_epochs'],
+                                           callbacks=G.callbacks)
+        model_path = os.path.join(os.getcwd(), config['model']['store_path'])
         #model.save(model_path,overwrite=True)
 
-        model_path = os.path.join(os.getcwd(), config['model']['store_path'])
         model = keras.models.load_model(model_path)
 
         mlflow.keras.log_model(model, "resnet50")
@@ -81,11 +81,8 @@ def unet():
         model_path = os.path.join(os.getcwd(), config['model']['store_path'])
         model = keras.models.load_model(model_path,custom_objects={
                                         'dice_coef':dice_coef})
-
         mlflow.keras.log_model(model, "unet")
-
         logging.info("Model training completed successfully")
-
 
         # Register the model
         model_name = "segmentation_model"
@@ -94,10 +91,9 @@ def unet():
 
         logging.info("MLflow tracking completed successfully")
 
-
 if __name__ == "__main__":
     main()
-#    unet()
+    unet()
 
 
 
