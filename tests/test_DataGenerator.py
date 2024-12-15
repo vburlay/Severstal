@@ -4,8 +4,10 @@ import os
 from pathlib import Path
 
 from steps.image_data_generator import DataGenerator
+
 os.environ["SM_FRAMEWORK"] = "tf.keras"
-from segmentation_models import  get_preprocessing
+from segmentation_models import get_preprocessing
+
 
 class DataGeneratorTestCase(unittest.TestCase):
     def test_init(self):
@@ -22,8 +24,6 @@ class DataGeneratorTestCase(unittest.TestCase):
         test = pd.read_csv(path + '/sample_submission.csv')
         defect: list[str] = test.sample(16).index
         test_batches = DataGenerator(test[test.index.isin(defect)],
-                                        subset='test',
-                                        preprocess=get_preprocessing('resnet50'))
+                                     subset='test',
+                                     preprocess=get_preprocessing('resnet50'))
         self.assertEqual(test_batches.info.__class__, dict)
-
-

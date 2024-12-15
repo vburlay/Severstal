@@ -80,14 +80,14 @@ def rle2maskResize(rle):
     starts = array[0::2] - 1
     lengths = array[1::2]
     for index, start in enumerate(starts):
-        mask[int(start) : int(start + lengths[index])] = 1
+        mask[int(start): int(start + lengths[index])] = 1
 
         return mask.reshape((height, width), order="F")[::2, ::2]
 
 
 class DataGenerator(keras.utils.Sequence):
     def __init__(
-        self, df, batch_size=16, subset="train", shuffle=False,
+            self, df, batch_size=16, subset="train", shuffle=False,
             preprocess=None, info={}
     ):
         super().__init__()
@@ -115,7 +115,8 @@ class DataGenerator(keras.utils.Sequence):
     def __getitem__(self, index):
         X = np.empty((self.batch_size, 128, 800, 3), dtype=np.float32)
         y = np.empty((self.batch_size, 128, 800, 4), dtype=np.int8)
-        indexes = self.indexes[index * self.batch_size : (index + 1) * self.batch_size]
+        indexes = self.indexes[
+                  index * self.batch_size: (index + 1) * self.batch_size]
         for i, f in enumerate(self.df["ImageId"].iloc[indexes]):
             self.info[index * self.batch_size + i] = f
             X[i,] = Image.open(self.data_path + f).resize((800, 128))
@@ -135,15 +136,18 @@ class DataGenerator(keras.utils.Sequence):
 def generators_unet():
     path = os.path.join(os.getcwd(), "data")
     train = pd.read_csv(path + "/train.csv")
-    train2 = train.pivot(index="ImageId", columns="ClassId", values="EncodedPixels")
+    train2 = train.pivot(index="ImageId", columns="ClassId",
+                         values="EncodedPixels")
     train2.fillna("", inplace=True)
     train2["count"] = np.sum(train2.iloc[:] != "", axis=1).values
     train2 = pd.DataFrame(train2.to_records())
-    train2.rename(columns={"1": "e1", "2": "e2", "3": "e3", "4": "e4"}, inplace=True)
+    train2.rename(columns={"1": "e1", "2": "e2", "3": "e3", "4": "e4"},
+                  inplace=True)
 
     idx = int(0.8 * len(train2))
     train_batches = DataGenerator(
         train2.iloc[:idx], shuffle=True, preprocess=G.preprocess_input
     )
-    valid_batches = DataGenerator(train2.iloc[idx:], preprocess=G.preprocess_input)
+    valid_batches = DataGenerator(train2.iloc[idx:],
+                                  preprocess=G.preprocess_input)
     return train_batches, valid_batches

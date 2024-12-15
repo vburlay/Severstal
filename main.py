@@ -2,15 +2,18 @@ import logging
 import yaml
 import mlflow
 from steps.image_data_generator import *
-from steps.train import get_resnet50,dice_coef
+from steps.train import get_resnet50, dice_coef
 import os
 import steps.preproc as pr
 from steps.predict import Predictor
+
 # Set up logging
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
+
+
 def main():
-    with open ('config.yml', 'r') as file:
+    with open('config.yml', 'r') as file:
         config = yaml.safe_load(file)
     mlflow.set_experiment("Model Training Experiments")
 
@@ -28,10 +31,10 @@ def main():
 
         model = get_resnet50()
         model.fit(generator_train, validation_data=generator_validation,
-                  epochs= config['train']['nb_epochs'],
-                                           callbacks=G.callbacks)
+                  epochs=config['train']['nb_epochs'],
+                  callbacks=G.callbacks)
         model_path = os.path.join(os.getcwd(), config['model']['store_path'])
-        #model.save(model_path,overwrite=True)
+        # model.save(model_path,overwrite=True)
 
         model = keras.models.load_model(model_path)
 
@@ -40,13 +43,13 @@ def main():
 
         # Evaluate model
         predictor = Predictor()
-        accuracy, roc, precision, recall, f1, report= predictor.evaluate_model(
-                                                             generator_train)
+        accuracy, roc, precision, recall, f1, report = predictor.evaluate_model(
+            generator_train)
         logging.info("Model evaluation completed successfully")
 
         # Tags
         mlflow.set_tag("release.version", "2.0.0")
-        mlflow.set_tag("preprocessing","Size-(224:224)")
+        mlflow.set_tag("preprocessing", "Size-(224:224)")
 
         # Log metrics
         model_params = config['model']['params']
@@ -71,15 +74,17 @@ def main():
             f"Accuracy Score: {accuracy:.4f}, ROC AUC Score: {roc:.4f}")
         print(f"\n{report}")
         print("=====================================================\n")
+
+
 def unet():
-    with open ('config.yml', 'r') as file:
+    with open('config.yml', 'r') as file:
         config = yaml.safe_load(file)
     mlflow.set_experiment("Model Training Experiments")
 
     with mlflow.start_run() as run:
         model_path = os.path.join(os.getcwd(), config['model']['store_path'])
-        model = keras.models.load_model(model_path,custom_objects={
-                                        'dice_coef':dice_coef})
+        model = keras.models.load_model(model_path, custom_objects={
+            'dice_coef': dice_coef})
         mlflow.keras.log_model(model, "unet")
         logging.info("Model training completed successfully")
 
@@ -90,9 +95,7 @@ def unet():
 
         logging.info("MLflow tracking completed successfully")
 
+
 if __name__ == "__main__":
     main()
     unet()
-
-
-

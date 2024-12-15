@@ -53,7 +53,8 @@ def dice_coef(y_true, y_pred, smooth=1):
     y_true_f = K.flatten(y_true)
     y_pred_f = K.flatten(y_pred)
     intersection = K.sum(y_true_f * y_pred_f)
-    return (2.0 * intersection + smooth) / (K.sum(y_true_f) + K.sum(y_pred_f) + smooth)
+    return (2.0 * intersection + smooth) / (
+                K.sum(y_true_f) + K.sum(y_pred_f) + smooth)
 
 
 def model_unet():
@@ -65,7 +66,8 @@ def model_unet():
         classes=4,
         activation="sigmoid",
     )
-    model.compile(optimizer="adam", loss="binary_crossentropy", metrics=[dice_coef])
+    model.compile(optimizer="adam", loss="binary_crossentropy",
+                  metrics=[dice_coef])
     return model
 
 
@@ -90,6 +92,7 @@ if (__name__) == "__main__":
     train_batches, valid_batches = generators_unet()
     # TRAIN MODEL
     u_model = model_unet()
-    u_model.fit(train_batches, validation_data=valid_batches, epochs=5, verbose=2)
+    u_model.fit(train_batches, validation_data=valid_batches, epochs=5,
+                verbose=2)
     model_path_unet = os.path.join(base_dir, "models/unet.keras")
 #    u_model.save(model_path_unet, overwrite=True)
