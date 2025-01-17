@@ -1,0 +1,11 @@
+/* stylesheet for Severstal competition */
+
+body{
+    background-color: floralwhite;
+    color: black;
+}
+header{
+    background-color: steelblue;
+    color: white;
+    padding: 1rem;
+}
