@@ -11,7 +11,6 @@ from steps.predict import Predictor
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
 
-
 def main():
     with open('config.yml', 'r') as file:
         config = yaml.safe_load(file)

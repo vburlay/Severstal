@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" id="top">
 <head>
     <!-- Meta-Angaben zu Zeichensatz und Viewport -->
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
     <!-- Seitentitel und Seitenbeschreibung -->
     <title>Start site - Severstal</title>
-    <meta name="description" content="Beschreibung für diese Webseite">
+    <meta name="description" content="Description for this Site">
     <link href="css/style.css" rel = "stylesheet">
 
 </head>
@@ -15,13 +15,41 @@
 <!-- Kopfbereich der Webseite -->
 <header>
     <h1>Severstal: Steel Defect Detection</h1>
-    <p>Competition(Kaggle)</p>
+    <p>Competition(www.kaggle.com)</p>
 </header>
 <!-- Navigationsbereich -->
-<nav></nav>
+<nav>
+    <ul>
+        <li><a href="index.html"><strong>Home page</strong></a></li>
+        <li><a href=#><strong>Description</strong></a></li>
+        <li><a href=#><strong>Download</strong></a></li>
+        <li><a href=#><strong>Classification</strong></a></li>
+        <li><a href=#><strong>Segmentation</strong></a></li>
+    </ul>
+</nav>
 <!-- Inhaltsbereich -->
-<main></main>
+<main>
+    <h2>Description</h2>
+    <p>Steel is one of the most important building materials of our time.
+        Steel buildings are resistant to natural and artificial wear and
+        which has made this material ubiquitous throughout the world.
+        To improve the efficiency of steel production, this program will help to
+        identify defects.</p>
+    <p>In this program was used an algorithm by <strong><em>localizing</em></strong>
+        and <strong><em>classifying</em></strong> surface defects on a steel
+        plate.</p>
+    <p>Dataset Description:</p>
+    <ul>
+        <li>Defects must be segmented and classified in the test set.</li>
+        <li>Each image may have no defects, a defect of a single class, or
+            defects of multiple classes.</li>
+        <li>For each image must be segment defects of each class (ClassId = [1, 2, 3, 4]).</li>
+    </ul>
+    <p>You can find more details <a
+            href="https://www.kaggle.com/competitions/severstal-steel-defect-detection/overview" target="_blank" rel="noreferrer noopener">her.</a></p>
+
+</main>
 <!-- Fußbereich -->
-<footer></footer>
+<footer><a href="#top">nach oben</a></footer>
 </body>
 </html>
