@@ -1,5 +1,6 @@
 /* stylesheet for Severstal competition */
 
+
 body{
     background-color: floralwhite;
     color: black;
@@ -9,6 +10,7 @@ header{
     color: white;
     padding: 1rem;
 }
+
 nav ul{
     display: flex;
     list-style: none;

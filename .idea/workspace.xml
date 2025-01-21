@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a23ebd9-61cc-4078-995c-23cb5dc85161" name="Changes" comment="html+css">
+      <change afterPath="$PROJECT_DIR$/bilder/CHMF.ME_BIG.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +60,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/vladimir/PycharmProjects/Severstal&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/vladimir/PycharmProjects/Severstal/bilder&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -71,6 +71,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bilder" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -109,7 +112,10 @@
       <workItem from="1737237732427" duration="1890000" />
       <workItem from="1737295219680" duration="602000" />
       <workItem from="1737298572951" duration="7299000" />
-      <workItem from="1737351955769" duration="487000" />
+      <workItem from="1737351955769" duration="2102000" />
+      <workItem from="1737480402292" duration="3234000" />
+      <workItem from="1737485268709" duration="462000" />
+      <workItem from="1737490214634" duration="770000" />
     </task>
     <task id="LOCAL-00002" summary="requrrements.txt">
       <option name="closed" value="true" />
@@ -127,7 +133,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737154420070</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="html+css">
+      <option name="closed" value="true" />
+      <created>1737352456199</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1737352456199</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
