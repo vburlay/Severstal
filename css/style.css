@@ -1,28 +1,75 @@
 /* stylesheet for Severstal competition */
+.dl{
+    padding: 2.5rem;
+}
+button{
+    margin-left: 3rem;
+}
+form{
+    padding: 2.5rem;
+}
+label{
+    cursor: pointer;
+    display: block;
+    margin-bottom: 1rem;
+}
+ins {
+    text-decoration: none;
+    background-color: lightgoldenrodyellow;
+}
+details{
+    background-color: whitesmoke;
+    padding: 1rem;
+    border:1px solid lightgray;
+    margin-bottom: 1rem;
+}
+summary{
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+.infobox {
+  background-color: white;
+  padding: 1rem;
+  margin: 1rem;
+}
 
-
-body{
+.toolslisten {
+        background-color: whitesmoke;
+        border: 1px solid silver;
+        padding: 2rem;
+      }
+.container {
+    background-color: whitesmoke;
+    padding: 1rem;
+}
+.tools{
+    background-color: #c4c2bc;
+    padding: 1rem;
+    color: black;
+}
+.startseite{
     background-color: floralwhite;
     color: black;
 }
-header{
+.site-header{
     background-color: steelblue;
     color: white;
-    padding: 1rem;
-}
+    padding: 0.5rem;
 
-nav ul{
+}
+.site-nav ul{
     display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
 }
-nav {
+.site-nav {
     background-color: chocolate;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
-nav a {
+.site-nav a {
     color: whitesmoke;
     text-decoration: none;
     text-align: center;
@@ -33,13 +80,13 @@ nav a {
 html {
     scroll-behavior: smooth;
 }
-footer {
+.site-footer {
     background-color: steelblue;
     color: white;
     text-align: right;
     padding: 0.5rem;
 }
-footer a {
+.site-footer a {
     color: whitesmoke;
     text-decoration: none;
 }

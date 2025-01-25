@@ -8,20 +8,24 @@
     <!-- Seitentitel und Seitenbeschreibung -->
     <title>Start site - Severstal</title>
     <meta name="description" content="Description for this Site">
-    <link href="css/style.css" rel = "stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
 </head>
+
 <body class="startseite">
 <!-- Kopfbereich der Webseite -->
-<header>
-    <h1><img src="bilder/CHMF.ME_BIG.png"
+<header class="site-header">
+    <p>
+    <h1>Steel Defect Detection &nbsp;
+        <img src="bilder/CHMF.ME_BIG.png"
              alt="Severstal: Steel Defect Detection"
-            width="300"
-            height="100"></h1>
-    <p>Steel Defect Detection. Competition(www.kaggle.com)</p>
+             width="200"
+             height="75"></h1><br>
+    Competition(www.kaggle.com)</p>
+
 </header>
 <!-- Navigationsbereich -->
-<nav>
+<nav class="site-nav">
     <ul>
         <li><a href="index.html"><strong>Home page</strong></a></li>
         <li><a href=#><strong>Description</strong></a></li>
@@ -29,28 +33,92 @@
     </ul>
 </nav>
 <!-- Inhaltsbereich -->
-<main>
-    <h2>Description</h2>
-    <p>Steel is one of the most important building materials of our time.
-        Steel buildings are resistant to natural and artificial wear and
-        which has made this material ubiquitous throughout the world.
-        To improve the efficiency of steel production, this program will help to
-        identify defects.</p>
-    <p>In this program was used an algorithm by <strong><em>localizing</em></strong>
-        and <strong><em>classifying</em></strong> surface defects on a steel
-        plate.</p>
-    <p>Dataset Description:</p>
-    <ul>
-        <li>Defects must be segmented and classified in the test set.</li>
-        <li>Each image may have no defects, a defect of a single class, or
-            defects of multiple classes.</li>
-        <li>For each image must be segment defects of each class (ClassId = [1, 2, 3, 4]).</li>
-    </ul>
-    <p>You can find more details <a
-            href="https://www.kaggle.com/competitions/severstal-steel-defect-detection/overview" target="_blank" rel="noreferrer noopener">her.</a></p>
 
+
+<main class="site-content" id="content">
+    <div class="container">
+        <h2>Description</h2>
+        <section class="content-intro">
+            <article class="infobox">
+                <p>Steel is one of the most important building materials of our
+                    time.
+                    Steel buildings are resistant to natural and artificial
+                    wear
+                    and
+                    which has made this material ubiquitous throughout the
+                    world.
+                    To improve the efficiency of steel production, this program
+                    will
+                    help to
+                    identify defects.</p>
+                <p>In this program was used an algorithm by
+                    <strong><em>localizing</em></strong>
+                    and <strong><em>classifying</em></strong> surface defects
+                    on a
+                    steel
+                    plate.</p>
+                <details open>
+                    <summary>Dataset Description:</summary>
+                    <ul>
+                        <li>Defects must be segmented and classified in the
+                            test
+                            set.
+                        </li>
+                        <li>Each image may have no defects, a defect of a
+                            single
+                            class,
+                            or
+                            defects of multiple classes.
+                        </li>
+                        <li>For each image must be segment defects of each
+                            class
+                            (ClassId =
+                            [1, 2, 3, 4]).
+                        </li>
+                    </ul>
+                </details>
+                <p>You can find more details <a
+                        href="https://www.kaggle.com/competitions/severstal-steel-defect-detection/overview"
+                        target="_blank" rel="noreferrer noopener">her.</a></p>
+            </article>
+        </section>
+    </div>
+
+    <div class="tools">
+        <aside class="toolslisten">
+            <h2>Tools list</h2>
+            <section class="download">
+                <ul>
+                    <li>Here you can
+                        <ins>load</ins>
+                        files(.png):
+                    </li>
+                </ul>
+            </section>
+            <a href="#" class="dl"><strong>Downloads file</strong></a>
+            <section class="classigm">
+                <form>
+                    <li><label for="algorithm">Here you can
+                        choose
+                        <ins>algorithm</ins>
+                        by:</label></li>
+                    <select id="algorithm" name="algorithm">
+                        <option value="">Please choose algorithm:</option>
+                        <option value="cl">Classification</option>
+                        <option value="sg">Segmentation</option>
+                    </select>
+                    <button type="submit">Start</button>
+                </form>
+            </section>
+        </aside>
+    </div>
 </main>
+
 <!-- Fußbereich -->
-<footer><a href="#top">nach oben</a></footer>
+<footer class="site-footer">
+    <small>Copyright &copy;
+        <time datetime="2025">2025</time>
+    </small>
+</footer>
 </body>
 </html>
