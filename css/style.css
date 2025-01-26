@@ -1,4 +1,30 @@
 /* stylesheet for Severstal competition */
+.site-nav li {
+    flex: 1;
+    max-width: 7rem;
+    border-right: 1px solid white;}
+.dwl
+{
+ padding: 2.5rem;
+ margin: 0;
+}
+.site-nav li:first-child {
+    border-left: 1px solid white;}
+
+.site-nav a {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.site-nav [aria-current] a {
+  background: #07b;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+}
 .dl{
     padding: 2.5rem;
 }
@@ -28,6 +54,11 @@ summary{
     font-weight: bold;
     font-size: 1.25rem;
 }
+.infoboxen {
+  background-color: whitesmoke;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
 .infobox {
   background-color: white;
   padding: 1rem;
@@ -35,7 +66,7 @@ summary{
 }
 
 .toolslisten {
-        background-color: whitesmoke;
+        background-color: floralwhite;
         border: 1px solid silver;
         padding: 2rem;
       }
@@ -83,10 +114,22 @@ html {
 .site-footer {
     background-color: steelblue;
     color: white;
-    text-align: right;
     padding: 0.5rem;
 }
 .site-footer a {
     color: whitesmoke;
     text-decoration: none;
+}
+header h2{
+    margin-bottom: 1rem;
+}
+.content-intro{
+    border: 1px solid silver;
+    padding: 2rem;
+    background-color: floralwhite;
+}
+.kontaktdaten{
+    border: 1px solid silver;
+    padding: 2rem;
+    background-color: floralwhite;
 }

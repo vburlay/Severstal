@@ -15,108 +15,84 @@
 <body class="startseite">
 <!-- Kopfbereich der Webseite -->
 <header class="site-header">
-    <p>
-    <h1>Steel Defect Detection &nbsp;
-        <img src="bilder/CHMF.ME_BIG.png"
+    <h1>Steel Defect Detection
+        <img style="float:right" src="bilder/CHMF.ME_BIG.png"
              alt="Severstal: Steel Defect Detection"
-             width="200"
-             height="75"></h1><br>
-    Competition(www.kaggle.com)</p>
+             width="300"
+             height="100"> </h1>
+    <h2>Competition(www.kaggle.com)</h2>
 
 </header>
 <!-- Navigationsbereich -->
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Haupt">
     <ul>
-        <li><a href="index.html"><strong>Home page</strong></a></li>
-        <li><a href=#><strong>Description</strong></a></li>
-        <li><a href="#"><strong>Visualization</strong></a></li>
+        <li aria-current="page"><a href="index.html"><strong>Start
+            page</strong></a></li>
+        <li><a href="tools.html"><strong>Tools&nbsp;list</strong></a></li>
+        <li><a href="statistic.html"><strong>Statistic</strong></a></li>
+        <li><a href="description.html"><strong>Description</strong></a></li>
+        <li><a href="contact.html"><strong>Contact</strong></a></li>
     </ul>
 </nav>
 <!-- Inhaltsbereich -->
-
-
 <main class="site-content" id="content">
-    <div class="container">
-        <h2>Description</h2>
-        <section class="content-intro">
-            <article class="infobox">
-                <p>Steel is one of the most important building materials of our
-                    time.
-                    Steel buildings are resistant to natural and artificial
-                    wear
-                    and
-                    which has made this material ubiquitous throughout the
-                    world.
-                    To improve the efficiency of steel production, this program
-                    will
-                    help to
-                    identify defects.</p>
-                <p>In this program was used an algorithm by
-                    <strong><em>localizing</em></strong>
-                    and <strong><em>classifying</em></strong> surface defects
-                    on a
-                    steel
-                    plate.</p>
-                <details open>
-                    <summary>Dataset Description:</summary>
-                    <ul>
-                        <li>Defects must be segmented and classified in the
-                            test
-                            set.
-                        </li>
-                        <li>Each image may have no defects, a defect of a
-                            single
-                            class,
-                            or
-                            defects of multiple classes.
-                        </li>
-                        <li>For each image must be segment defects of each
-                            class
-                            (ClassId =
-                            [1, 2, 3, 4]).
-                        </li>
-                    </ul>
-                </details>
-                <p>You can find more details <a
-                        href="https://www.kaggle.com/competitions/severstal-steel-defect-detection/overview"
-                        target="_blank" rel="noreferrer noopener">her.</a></p>
-            </article>
-        </section>
-    </div>
 
-    <div class="tools">
-        <aside class="toolslisten">
-            <h2>Tools list</h2>
-            <section class="download">
-                <ul>
-                    <li>Here you can
-                        <ins>load</ins>
-                        files(.png):
-                    </li>
-                </ul>
-            </section>
-            <a href="#" class="dl"><strong>Downloads file</strong></a>
-            <section class="classigm">
-                <form>
-                    <li><label for="algorithm">Here you can
-                        choose
-                        <ins>algorithm</ins>
-                        by:</label></li>
-                    <select id="algorithm" name="algorithm">
-                        <option value="">Please choose algorithm:</option>
-                        <option value="cl">Classification</option>
-                        <option value="sg">Segmentation</option>
-                    </select>
-                    <button type="submit">Start</button>
-                </form>
-            </section>
-        </aside>
-    </div>
+      <section class="content-intro">
+
+        <h2>Welcome</h2>
+
+        <p>Webseiten bestehen am Bildschirm aus <strong>rechteckigen Kästchen</strong>.
+        Alles Runde ist entweder Trick, Grafik oder beides.</p>
+        <p>Beim Umgang mit diesen Kästchen haben <em>HTML</em> und <em>CSS</em>
+        klar getrennte Aufgaben: </p>
+
+        <ul>
+          <li>HTML-Elemente strukturieren die Webseite und erstellen die Kästchen.</li>
+          <li>CSS-Regeln gestalten die Kästchen und deren Inhalte.</li>
+        </ul>
+        <p>Beide Sprachen arbeiten bei der Erstellung und Gestaltung von
+            Webseiten eng zusammen. Visit the Kaggle <a
+                    href="https://www.kaggle.com/competitions/severstal-steel-defect-detection/overview" target="_blank" rel="noreferrer noopener">website</a> for more information.
+          </p>
+      </section>
+
+    <section class="infoboxen">
+
+        <h2>The areas of the website</h2>
+
+        <article class="infobox">
+            <h3>Tools</h3>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+            <p><a href="tools.html">To Tools list</a></p>
+        </article>
+
+
+        <article class="infobox">
+          <h3>Description</h3>
+          <p>Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+          <p><a href="description.html">To description</a></p>
+        </article>
+
+
+        <article class="infobox">
+          <h3>Statistic</h3>
+          <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+          <p><a href="statistic.html">To statistic</a></p>
+        </article>
+
+         <article class="infobox">
+          <h3>Contact</h3>
+          <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+          <p><a href="contact.html">To statistic</a></p>
+        </article>
+
+      </section>
 </main>
 
 <!-- Fußbereich -->
 <footer class="site-footer">
-    <small>Copyright &copy;
+    <a href="#top" >Nach oben</a>
+    <small style="float:right">Copyright &copy;
         <time datetime="2025">2025</time>
     </small>
 </footer>

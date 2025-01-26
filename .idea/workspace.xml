@@ -5,6 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a23ebd9-61cc-4078-995c-23cb5dc85161" name="Changes" comment="html+css">
+      <change afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
@@ -53,13 +57,13 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Debug&quot;,
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests in test_DataGenerator.py.executor&quot;: &quot;Run&quot;,
     &quot;Python.app.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/vladimir/PycharmProjects/Severstal/bilder&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/vladimir/PycharmProjects/Severstal&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -71,6 +75,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/bilder" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -129,7 +134,17 @@
       <workItem from="1737749141102" duration="695000" />
       <workItem from="1737750180816" duration="2117000" />
       <workItem from="1737809863076" duration="852000" />
-      <workItem from="1737831790819" duration="734000" />
+      <workItem from="1737831790819" duration="1244000" />
+      <workItem from="1737886517117" duration="81000" />
+      <workItem from="1737887336343" duration="20000" />
+      <workItem from="1737887876696" duration="1880000" />
+      <workItem from="1737893018745" duration="201000" />
+      <workItem from="1737893599171" duration="11800000" />
+      <workItem from="1737908117637" duration="1086000" />
+      <workItem from="1737909593916" duration="224000" />
+      <workItem from="1737915311328" duration="626000" />
+      <workItem from="1737916421930" duration="765000" />
+      <workItem from="1737917638433" duration="985000" />
     </task>
     <task id="LOCAL-00002" summary="requrrements.txt">
       <option name="closed" value="true" />
@@ -163,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737491430412</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="html+css">
+      <option name="closed" value="true" />
+      <created>1737832547233</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1737832547233</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
