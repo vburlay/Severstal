@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a23ebd9-61cc-4078-995c-23cb5dc85161" name="Changes" comment="html+css">
-      <change afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/description.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/statistic.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/description.html" beforeDir="false" afterPath="$PROJECT_DIR$/description.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistic.html" beforeDir="false" afterPath="$PROJECT_DIR$/statistic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools.html" beforeDir="false" afterPath="$PROJECT_DIR$/tools.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,6 +145,12 @@
       <workItem from="1737915311328" duration="626000" />
       <workItem from="1737916421930" duration="765000" />
       <workItem from="1737917638433" duration="985000" />
+      <workItem from="1737918680808" duration="703000" />
+      <workItem from="1737963791483" duration="625000" />
+      <workItem from="1737967640152" duration="1548000" />
+      <workItem from="1737969818126" duration="660000" />
+      <workItem from="1737985165639" duration="1295000" />
+      <workItem from="1737998304642" duration="7058000" />
     </task>
     <task id="LOCAL-00002" summary="requrrements.txt">
       <option name="closed" value="true" />
@@ -186,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737832547233</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="html+css">
+      <option name="closed" value="true" />
+      <created>1737918694273</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1737918694273</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
