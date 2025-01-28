@@ -7,7 +7,7 @@ html{
 body{
     background-color: white;
     min-width: 320px;
-    max-width: 1800px;
+    max-width: 1300px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -81,8 +81,15 @@ summary{
   margin: 1rem;
   border: 2px solid lightgray;
   border-radius: 2rem;
+  border-left: 5px solid steelblue;;
 }
-
+#index1{
+    padding-top: 0.5rem;
+}
+#index2,#index3,#index4,#index5 {
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+}
 .toolslisten {
         background-color: floralwhite;
         border: 1px solid silver;
