@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9a23ebd9-61cc-4078-995c-23cb5dc85161" name="Changes" comment="html+css">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/description.html" beforeDir="false" afterPath="$PROJECT_DIR$/description.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
@@ -148,7 +149,8 @@
       <workItem from="1737969818126" duration="660000" />
       <workItem from="1737985165639" duration="1295000" />
       <workItem from="1737998304642" duration="7058000" />
-      <workItem from="1738082856775" duration="4685000" />
+      <workItem from="1738082856775" duration="6105000" />
+      <workItem from="1738132971613" duration="13921000" />
     </task>
     <task id="LOCAL-00002" summary="requrrements.txt">
       <option name="closed" value="true" />
@@ -206,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738082881652</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="html+css">
+      <option name="closed" value="true" />
+      <created>1738101055959</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1738101055959</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

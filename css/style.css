@@ -10,6 +10,8 @@ body{
     max-width: 1300px;
     margin-right: auto;
     margin-left: auto;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1rem;
 }
 
 
@@ -23,8 +25,8 @@ body{
  padding: 2.5rem;
  margin: 0;
 }
-.site-nav li:first-child {
-    border-left: 1px solid white;}
+/*.site-nav li:first-child {
+    border-left: 1px solid white;}*/
 
 .site-nav a {
   display: block;
@@ -81,15 +83,23 @@ summary{
   margin: 1rem;
   border: 2px solid lightgray;
   border-radius: 2rem;
-  border-left: 5px solid steelblue;;
+  border-left: 5px solid steelblue;
 }
+/* Sehr wichtig*/
+.site-content{
+    line-height: 1.5;
+}
+/* Sehr wichtig*/
 #index1{
     padding-top: 0.5rem;
 }
 #index2,#index3,#index4,#index5 {
     padding-top: 0.5rem;
     padding-left: 1rem;
+    text-align: center;
 }
+#index21, #index31,#index41,#index51 {
+    text-align: center;}
 .toolslisten {
         background-color: floralwhite;
         border: 1px solid silver;
@@ -144,6 +154,7 @@ html {
     padding-left: 1rem;
     padding-right: 1rem;
 
+
 }
 .site-footer a {
     color: whitesmoke;
@@ -169,7 +180,17 @@ header img{
 .site-header {margin-bottom: 1rem}
 .site-nav {margin-bottom: 2rem}
 .site-content{margin-bottom: 2rem}
-
+.site-content a:link{color: #50a; }
+.site-content a:visited{color: #05a; }
+.site-content a:hover, .site-content a:focus{color: #50a;}
+.site-content a:active{color: #05a; }
+.site-content a[target="_blank"]:after{
+    content: "\00A0\2197";
+}
+.kontaktdaten > h3 { text-shadow: 4px 4px 4px rgba(170,170,170,0.5)}
+.content-intro > h2 { text-shadow: 4px 4px 4px rgba(170,170,170,0.5)}
+.toolslisten > h2 { text-shadow: 4px 4px 4px rgba(170,170,170,0.5)}
+#content > h2 { text-shadow: 4px 4px 4px rgba(170,170,170,0.5)}
 /* Collapsing Margins vermeiden*/
 h1, h2,h3,h4,h5,h6,p,ul,ol,blockquote{
     margin-top: 0;
