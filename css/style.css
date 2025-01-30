@@ -1,8 +1,20 @@
-/* border-box aktivieren */
-
+/** ==========================================
+Web app Severstal
+style.css
+Central stylesheet for importing the modules
+is integrated into the HTML files via <link
+Date: style.css
+Date: 01/30/2025
+Autor: V.Burlay
+======================================= */
 *, *::before, *::after {box-sizing: border-box;}
-html{
-    background: whitesmoke;
+html {
+    scroll-behavior: smooth;
+    --linkfarbe-active: #50a;
+    --linkfarbe-visited: #05a;
+    --whitesmoke-color: whitesmoke;
+    --white-color: white;
+    --floralwhite-color: floralwhite;
 }
 body{
     background-color: white;
@@ -13,7 +25,9 @@ body{
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 1rem;
 }
-
+#Vis{
+    margin-left: 1rem;
+}
 
 /* stylesheet for Severstal competition */
 .site-nav li {
@@ -30,7 +44,7 @@ body{
 
 .site-nav a {
   display: block;
-  color: white;
+  color: var(--white-color);
   text-align: center;
   text-decoration: none;
   padding: 0.5rem 1rem;
@@ -61,7 +75,7 @@ ins {
     background-color: lightgoldenrodyellow;
 }
 details{
-    background-color: whitesmoke;
+    background-color: var(--whitesmoke-color);
     padding: 1rem;
     border:1px solid lightgray;
     margin-bottom: 1rem;
@@ -73,17 +87,18 @@ summary{
     font-size: 1.25rem;
 }
 .infoboxen {
-  background-color: whitesmoke;
+  background-color: var(--whitesmoke-color);
   padding: 1rem;
   margin-bottom: 1rem;
 }
 .infobox {
-  background-color: white;
+  background-color: var(--white-color);
   padding: 1rem;
   margin: 1rem;
   border: 2px solid lightgray;
   border-radius: 2rem;
   border-left: 5px solid steelblue;
+  box-shadow: 4px 4px 10px rgb(0,0,0,0.5)
 }
 /* Sehr wichtig*/
 .site-content{
@@ -101,26 +116,26 @@ summary{
 #index21, #index31,#index41,#index51 {
     text-align: center;}
 .toolslisten {
-        background-color: floralwhite;
+        background-color: var(--floralwhite-color);
         border: 1px solid silver;
         padding: 2rem;
       }
 .container {
-    background-color: whitesmoke;
+    background-color: var(--whitesmoke-color);
     padding: 1rem;
 }
 .tools{
-    background-color: whitesmoke;
+    background-color: var(--whitesmoke-color);
     padding: 1rem;
     color: black;
 }
 .startseite{
-    background-color: floralwhite;
+    background-color: var(--floralwhite-color);
     color: black;
 }
 .site-header{
     background-color: steelblue;
-    color: white;
+    color: var(--white-color);
     padding: 0.5rem;
 
 }
@@ -143,21 +158,16 @@ summary{
     padding: 0.5rem;
 }
 /* Sanftes Scrollen aktivieren */
-html {
-    scroll-behavior: smooth;
-}
+
 .site-footer {
     background-color: steelblue;
     color: white;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     padding-left: 1rem;
-    padding-right: 1rem;
-
-
-}
+    padding-right: 1rem;}
 .site-footer a {
-    color: whitesmoke;
+    color: var(--whitesmoke-color);
     text-decoration: none;
 }
 header h2{
@@ -168,22 +178,29 @@ header img{
     margin-right: 1rem  ;
 }
 .content-intro{
-    border: 1px solid silver;
+    border: 2px solid silver;
     padding: 2rem;
-    background-color: floralwhite;
+    background-color: var(--floralwhite-color);
+    box-shadow: 4px 4px 10px rgb(0,0,0,0.3);
+
 }
 .kontaktdaten{
     border: 1px solid silver;
     padding: 2rem;
-    background-color: floralwhite;
-}
+    margin-right: 25rem;
+    margin-left: 25rem;
+    text-align: center;
+    box-shadow: 4px 4px 10px rgb(0,0,0,0.3);
+    border-radius: 2rem;
+    background-color: var(--floralwhite-color);}
+
 .site-header {margin-bottom: 1rem}
 .site-nav {margin-bottom: 2rem}
 .site-content{margin-bottom: 2rem}
-.site-content a:link{color: #50a; }
-.site-content a:visited{color: #05a; }
-.site-content a:hover, .site-content a:focus{color: #50a;}
-.site-content a:active{color: #05a; }
+.site-content a:link{color: var(--linkfarbe-active); }
+.site-content a:visited{color: var(--linkfarbe-visited); }
+.site-content a:hover, .site-content a:focus{color: var(--linkfarbe-active);}
+.site-content a:active{color: var(--linkfarbe-visited); }
 .site-content a[target="_blank"]:after{
     content: "\00A0\2197";
 }
@@ -192,7 +209,10 @@ header img{
 .toolslisten > h2 { text-shadow: 4px 4px 4px rgba(170,170,170,0.5)}
 #content > h2 { text-shadow: 4px 4px 4px rgba(170,170,170,0.5)}
 /* Collapsing Margins vermeiden*/
-h1, h2,h3,h4,h5,h6,p,ul,ol,blockquote{
+/*h1, h2,h3,h4,h5,h6,p,ul,ol,blockquote{
     margin-top: 0;
+}*/
+.site-footer > a {
+    font-size: 1rem;
 }
 
