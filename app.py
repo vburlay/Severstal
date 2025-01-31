@@ -5,8 +5,6 @@ from steps.image_data_generator import *
 from fastapi import FastAPI
 
 app = FastAPI()
-
-
 @app.get("/")
 async def root():
     return {"detail_check": "OK", "model_version": 1}
