@@ -15,6 +15,7 @@ html {
     --whitesmoke-color: whitesmoke;
     --white-color: white;
     --floralwhite-color: floralwhite;
+     --schattenfarbe: rgb(51,51,51,0.3);
 }
 body{
     background-color: white;
@@ -90,6 +91,7 @@ summary{
   background-color: var(--whitesmoke-color);
   padding: 1rem;
   margin-bottom: 1rem;
+
 }
 .infobox {
   background-color: var(--white-color);
@@ -149,6 +151,10 @@ summary{
     background-color: chocolate;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 6px var(--schattenfarbe);
+
 }
 .site-nav a {
     color: whitesmoke;
