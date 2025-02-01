@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a23ebd9-61cc-4078-995c-23cb5dc85161" name="Changes" comment="html+css">
+    <list default="true" id="9a23ebd9-61cc-4078-995c-23cb5dc85161" name="Changes" comment="app.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/description.html" beforeDir="false" afterPath="$PROJECT_DIR$/description.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistic.html" beforeDir="false" afterPath="$PROJECT_DIR$/statistic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools.html" beforeDir="false" afterPath="$PROJECT_DIR$/tools.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,6 +161,8 @@
       <workItem from="1738270636428" duration="189000" />
       <workItem from="1738306644183" duration="641000" />
       <workItem from="1738319142404" duration="8503000" />
+      <workItem from="1738360518829" duration="1883000" />
+      <workItem from="1738421204080" duration="7308000" />
     </task>
     <task id="LOCAL-00002" summary="requrrements.txt">
       <option name="closed" value="true" />
@@ -247,7 +252,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738330563235</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="html+css">
+      <option name="closed" value="true" />
+      <created>1738360578760</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1738360578760</updated>
+    </task>
+    <task id="LOCAL-00014" summary="app.py">
+      <option name="closed" value="true" />
+      <created>1738360602491</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1738360602491</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,10 +279,11 @@
     <MESSAGE value="mReformat code" />
     <MESSAGE value="requrrements.txt" />
     <MESSAGE value="html+css" />
-    <option name="LAST_COMMIT_MESSAGE" value="html+css" />
+    <MESSAGE value="app.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="app.py" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Severstal$.coverage" NAME=" Coverage Results" MODIFIED="1734285195580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/Severstal$app.coverage" NAME="app Coverage Results" MODIFIED="1737152977794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Severstal$app.coverage" NAME="app Coverage Results" MODIFIED="1738361152554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -60,9 +60,7 @@ body{
 .dl{
     padding: 2.5rem;
 }
-button{
-    margin-left: 3rem;
-}
+
 form{
     padding: 2.5rem;
 }
@@ -220,5 +218,30 @@ header img{
 }*/
 .site-footer > a {
     font-size: 1rem;
+}
+.inside_tools{
+    background-color: var(--whitesmoke-color);
+    padding: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+.infobox_tools{
+    background-color: var(--white-color);
+}
+
+
+@media screen and (min-width: 800px) {
+    .infoboxen_tools > .inside_tools {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.5rem;
+        text-align: center;
+    }
+}
+@supports (grid-area: auto)
+{
+  .inside{
+    max-width: 960px;
+  }
 }
 
