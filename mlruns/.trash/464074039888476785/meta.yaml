@@ -1,7 +1,0 @@
-artifact_location: file:///home/vladimir/PycharmProjects/Severstal/mlruns/464074039888476785
-creation_time: 1731327658780
-experiment_id: '464074039888476785'
-last_update_time: 1731345010053
-lifecycle_stage: deleted
-name: Model Training Experiment
-tags: {}
