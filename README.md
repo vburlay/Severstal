@@ -137,7 +137,7 @@ test:
 
 ## Project Status
 
-Project is: _complete_ 
+Project is complete 
 
 
 ## Room for Improvement
