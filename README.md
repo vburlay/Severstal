@@ -1,10 +1,9 @@
-# Allstate Claim Prediction Challenge
+# Steel Defect Detection
 
-![image](https://github.com/vburlay/Severstal/raw/main/images/steel.jpg ) 
+![image](/images/Steel.jpg ) 
 
 > Predicting automobile liability insurance claim payments based on vehicle characteristics.
-> Live demo [_here_](https://mm6iv5-vladimir-burlay.shinyapps.io/Allstate_Claim_Prediction_Challenge/?_ga=2.78724884.1491513741.1672011004-1138473289.1668534479).
- 
+
 ## Table of Contents 
 
 * [General Info](#general-information)
