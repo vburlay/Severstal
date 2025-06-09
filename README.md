@@ -2,7 +2,7 @@
 
 ![image](/images/Steel.jpg ) 
 
-> Predicting automobile liability insurance claim payments based on vehicle characteristics.
+>Defect Detection based on classification and localization.
 
 ## Table of Contents 
 
@@ -20,69 +20,121 @@
 
 ## General Information
 
-> This project has two main objectives. One was to understand how to effectively predict automobile liability insurance claim payments based on vehicle characteristics, and the other was to determine a best approach to predict automobile liability insurance claim payments using customer data. 
- > Data set: "Allstate Claim Prediction Challenge" comes from Kaggle [_here_](https://www.kaggle.com/c/ClaimPredictionChallenge/overview).
+> To improve the efficiency of steel production, this program will help engineers automate the process of locating and classifying surface defects on steel plate.
+> This program uses the following algorithms:
+ > - Classification (binary ResNet50-model).
+ > - Segmentation (U-Net).
+
+ > Dataset: "Severstal" comes from Kaggle [_here_](https://www.kaggle.com/competitions/severstal-steel-defect-detection/overview).
 
 ## Technologies Used
-- R - version 3.6.1
-- Shiny - version 1.7.4
+- Python - version 3.10
+- AWS S3
+- MLflow
 
 ## Features
-- tidyverse
-- Lineare regression
-- Machine Learning ( gbm + random forest + single-hidden-layer neural network)
-
+- Pandas,numpy,keras,tensorflow,scikit-learn,mlflow,segmentation_models
+- ResNet50, Unet
 
 ## Screenshots
+- Classes
 
-![Example screenshot](https://github.com/vburlay/allstate_claim_prediction/raw/main/image/shiny.PNG)
+![Example screenshot](/images/classes.png)
+
+- Roc curve (Classification-ResNet50)
+
+![Example screenshot](/images/roc.png)
+
+- Dice coefficient
+
+![Example screenshot](/images/Dice coef.png)
+
+- Segmentation
+
+![Example screenshot](/images/segmentation.png)
 
 ## Setup
 
-It is necessary to install the following R-Packages additionally: 
+It is necessary to install the following Python-Packages additionally: 
 ```r
-install.packages(c("DT", "dplyr", "plotly", "shinyjs", "shinyFiles"))
+segmentation_models, keras, tensorflow, pandas , matplotlib 
 ```
 
 ## Usage
 
 * Preparation
 ```r
-highCorr <- findCorrelation(correlations, cutoff = .9)
-filteredSegData <- df[,-highCorr]
-rm(df,highCorr,correlations)
-trans <- preProcess(filteredSegData, method = c("BoxCox","center","scale","pca"))
-transformed <- predict(trans,filteredSegData)
+def find_files(path, filename):
+    data_csv = pd.read_csv(filename)
+    for root, dirs, files in os.walk(path):
+        data_img = pd.DataFrame(files, columns=["ImageId"])
+    dfs_dictionary = {"DF1": data_csv.ImageId, "DF2": data_img}
+    df = pd.concat(dfs_dictionary)
+    df = df.drop_duplicates(keep=FALSE)
+    return df["ImageId"].tolist()
+
+def extract_data(path):
+    if not os.path.exists(path):
+        os.mkdir(path)
+        normal = os.path.join(path, "normal")
+        os.mkdir(normal)
+        defects = os.path.join(path, "defect")
+        os.mkdir(defects)
+
+def parse_data_from_input(filename, source_dir, target_dir):
+    ls = find_files(source_dir, filename)
+    for row in ls:
+        temp_test_data = source_dir + "/" + row
+        ziel_dir = os.path.join(target_dir, "normal/")
+        final_val_data = ziel_dir + row
+        shutil.copyfile(temp_test_data, final_val_data)
+    with open(filename, "r") as file:
+        csv_reader = csv.reader(file, delimiter=",")
+        # Skip header
+        next(csv_reader, None)
+        for row in csv_reader:
+            ziel_dir = os.path.join(target_dir, "defect/")
+            temp_test_data = source_dir + "/" + row[0]
+            final_val_data = ziel_dir + row[0]
+            shutil.copyfile(temp_test_data, final_val_data)
 ```
-* GBM
+* Makefile
 ```r
-ames_gbm1 <- gbm(formula = trainSet$Claim_Amount ~ .,
-                 data = trainSet,
-                 distribution = "gaussian",
-                 n.trees = 500,
-                 shrinkage = 0.1,
-                 interaction.depth = 3,
-                 n.minobsinnode = 10,
-                 cv.folds = 5 )
+python = python-env/bin/python
+pip = python-env/bin/pip
+setup:
+	$(python) -m pip install --upgrade pip
+	$(pip) install -r requirements.txt
+run:
+	$(python) main.py
+mlflow:
+	python-env/bin/mlflow ui
+test:
+	$(python) -m pytest
 ```                 
-* Random Forest
+* MLflow
 ```r
-model_rf <- randomForest(trainSet$Claim_Amount ~ .,
-                          data = trainSet,
-                          importance =TRUE,
-                          ntree = 110)
+ # Tags
+        mlflow.set_tag("release.version", "2.0.0")
+        mlflow.set_tag("preprocessing", "Size-(224:224)")
+
+        # Log metrics
+        model_params = config['model']['params']
+        mlflow.log_params(model_params)
+        mlflow.log_metric("accuracy", accuracy)
+        mlflow.log_metric("roc", roc)
+        mlflow.log_metric('precision', precision)
+        mlflow.log_metric('recall', recall)
+        mlflow.log_metric('f1', f1)
+
+        # Register the model
+        model_name = "classifications_model"
+        model_uri = f"runs:/{run.info.run_id}/{config['model']['name']}"
+        mlflow.register_model(model_uri, model_name)
+
+        logging.info("MLflow tracking completed successfully")
 ```
-* NNET
-```r
-nnetFit <- nnet(predictors, outcome,
-                size = 5,
-                decay = 0.01,
-                linout = TRUE,
-                trace = FALSE,
-                maxit = 500,
-                MaxNWts = 5 * (ncol(predictors) + 1) + 5 + 1)
-predictions <- round(predict(nnetFit, testSet, interval = "predict", level = 0.95),2)
-```
+
 ## Project Status
 
 Project is: _complete_ 
@@ -90,9 +142,7 @@ Project is: _complete_
 
 ## Room for Improvement
 
-* By using cross-validation, an increase in the accuracy of the prediction could be achieved. In addition, the amount  of data was not satisfactory for the polynomial and the model was highly prone to overfitting.
-* The clustering procedure did not help the linear regression to demonstrate a good result. It is necessary to analyze the other procedures such as Bayes statistics approach 
-* The selected feature combinations were not suitable for modeling compared to single values.
+* By using ResNet101 model, an increase in the accuracy of the prediction could be achieved.
 
 
 ## Contact
