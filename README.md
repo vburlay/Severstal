@@ -1,6 +1,6 @@
 # Steel Defect Detection
 
-![image](/images/Steel.jpg ) 
+![image](/images/Steel.png ) 
 
 >Defect Detection based on classification and localization.
 
